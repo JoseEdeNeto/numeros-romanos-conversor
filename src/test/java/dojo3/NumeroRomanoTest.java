@@ -82,6 +82,7 @@ public class NumeroRomanoTest {
             map.put("M", 1000);
             map.put("X", 10);
             map.put("V", 5);
+            map.put("IV", 4);
             map.put("I", 1);
         }
 
@@ -91,7 +92,11 @@ public class NumeroRomanoTest {
             String[] algarismos = entrada.split("");
 
             for(int contador = 0; contador < algarismos.length; contador++){
-                if(map.containsKey(algarismos[contador])){
+                if(contador + 1 < algarismos.length && map.containsKey(algarismos[contador] + algarismos[contador + 1])){
+                    valor += map.get(algarismos[contador] + algarismos[contador + 1]);
+                    contador++;
+                }
+                else if(map.containsKey(algarismos[contador])){
                     valor += map.get(algarismos[contador]);
                 }
             }
