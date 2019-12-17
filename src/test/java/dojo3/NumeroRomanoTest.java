@@ -88,9 +88,12 @@ public class NumeroRomanoTest {
         public static int converter(String entrada) {
 
             int valor = 0;
+            String[] algarismos = entrada.split("");
 
-            if(map.containsKey(entrada)){
-                valor = map.get(entrada);
+            for(int contador = 0; contador < algarismos.length; contador++){
+                if(map.containsKey(algarismos[contador])){
+                    valor += map.get(algarismos[contador]);
+                }
             }
 
             return valor;
