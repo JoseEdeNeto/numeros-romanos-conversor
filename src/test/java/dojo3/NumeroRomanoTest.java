@@ -82,6 +82,15 @@ public class NumeroRomanoTest {
         assertEquals(79, retorno);
     }
 
+    @Test
+    public void para_CCXXV_deveRetornar_225() {
+        String entrada = "CCXXV";
+
+        int retorno = NumeroRomano.converter(entrada);
+
+        assertEquals(225, retorno);
+    }
+
     static class NumeroRomano {
 
         private final static Map<String, Integer> map = new HashMap<String, Integer>();
