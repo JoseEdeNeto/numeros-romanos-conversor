@@ -150,17 +150,24 @@ public class NumeroRomanoTest {
         public static int converter(String entrada) {
 
             int valor = 0;
-            String[] algarismos = entrada.split("");
-
-            for(int contador = 0; contador < algarismos.length; contador++){
-                if(contador + 1 < algarismos.length && map.containsKey(algarismos[contador] + algarismos[contador + 1])){
-                    valor += map.get(algarismos[contador] + algarismos[contador + 1]);
-                    contador++;
-                }
-                else if(map.containsKey(algarismos[contador])){
-                    valor += map.get(algarismos[contador]);
-                }
-            }
+        	int contador = 0;
+        	String[] algarismos = entrada.split("");
+        	
+        	while (contador < algarismos.length) {
+        		
+        		String algarismo = algarismos[contador];
+        		String duploAlgarismo = (contador + 1 < algarismos.length) ? algarismos[contador] + algarismos[contador + 1] : "0";
+        		
+        		if(!duploAlgarismo.equals("0") && map.containsKey(duploAlgarismo)) {
+            		valor += map.get(duploAlgarismo);
+            		contador++;
+            		
+            	} else if (map.containsKey(algarismo)) {
+            		valor += map.get(algarismo);
+            	}
+        		
+        		contador++;
+        	}
 
             return valor;
         }
