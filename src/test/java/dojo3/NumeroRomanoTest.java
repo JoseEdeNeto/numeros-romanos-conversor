@@ -73,6 +73,14 @@ public class NumeroRomanoTest {
         assertEquals(3000, retorno);
     }
 
+    @Test
+    public void para_LXXIX_deveRetornar_79() {
+        String entrada = "LXXIX";
+
+        int retorno = NumeroRomano.converter(entrada);
+
+        assertEquals(79, retorno);
+    }
 
     static class NumeroRomano {
 
