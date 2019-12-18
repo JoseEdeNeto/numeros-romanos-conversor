@@ -88,7 +88,9 @@ public class NumeroRomanoTest {
 
         static {
             map.put("M", 1000);
+            map.put("L", 50);
             map.put("X", 10);
+            map.put("IX", 9);
             map.put("V", 5);
             map.put("IV", 4);
             map.put("I", 1);
