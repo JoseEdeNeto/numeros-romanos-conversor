@@ -27,7 +27,6 @@ public class NumeroRomanoTest {
         assertEquals(2, retorno);
     }
 
-
     @Test
     public void para_IV_deveRetornar_4() {
         String entrada = "IV";
@@ -108,7 +107,7 @@ public class NumeroRomanoTest {
 
         assertEquals(2022, retorno);
     }
-    
+
     @Test
     public void para_MMDCLXVI_deveRetornar_2666() {
         String entrada = "MMDCLXVI";
@@ -117,7 +116,7 @@ public class NumeroRomanoTest {
 
         assertEquals(2666, retorno);
     }
-    
+
     @Test
     public void para_MCMXCIX_deveRetornar_1999() {
         String entrada = "MCMXCIX";
@@ -150,27 +149,28 @@ public class NumeroRomanoTest {
         public static int converter(String entrada) {
 
             int valor = 0;
-        	int contador = 0;
-        	String[] algarismos = entrada.split("");
-        	
-        	while (contador < algarismos.length) {
-        		
-        		String algarismo = algarismos[contador];
-        		String duploAlgarismo = (contador + 1 < algarismos.length) ? algarismos[contador] + algarismos[contador + 1] : "0";
-        		
-        		if(!duploAlgarismo.equals("0") && map.containsKey(duploAlgarismo)) {
-            		valor += map.get(duploAlgarismo);
-            		contador++;
-            		
-            	} else if (map.containsKey(algarismo)) {
-            		valor += map.get(algarismo);
-            	}
-        		
-        		contador++;
-        	}
+            int contador = 0;
+            String[] algarismos = entrada.split("");
+
+            while (contador < algarismos.length) {
+
+                String algarismo = algarismos[contador];
+                String duploAlgarismo = (contador + 1 < algarismos.length)
+                        ? algarismos[contador] + algarismos[contador + 1]
+                        : "0";
+
+                if (!duploAlgarismo.equals("0") && map.containsKey(duploAlgarismo)) {
+                    valor += map.get(duploAlgarismo);
+                    contador++;
+
+                } else if (map.containsKey(algarismo)) {
+                    valor += map.get(algarismo);
+                }
+
+                contador++;
+            }
 
             return valor;
         }
     }
-
 }
